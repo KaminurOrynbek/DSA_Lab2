@@ -11,5 +11,30 @@ public class MyQueue<T extends Comparable<T>> {
     }
 
     // Dequeue an element from the front of the queue
+    public T dequeue() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Queue is empty");
+        }
+        T element = list.getFirst(); // Get the first element
+        list.removeFirst();           // Remove the first element
+        return element;
+    }
 
+    // Peek at the front element of the queue without removing it
+    public T peek() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Queue is empty");
+        }
+        return list.getFirst();
+    }
+
+    // Check if the queue is empty
+    public boolean isEmpty() {
+        return list.size() == 0;
+    }
+
+    // Get the size of the queue
+    public int size() {
+        return list.size();
+    }
 }
